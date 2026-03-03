@@ -115,6 +115,9 @@
   # Enable zsh system-wide
   programs.zsh.enable = true;
 
+  # Passwordless sudo for wheel group
+  security.sudo.wheelNeedsPassword = false;
+
   # Define a user account. Don't forget to set a password with 'passwd'.
   users.users.santos = {
     isNormalUser = true;

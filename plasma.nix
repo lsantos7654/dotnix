@@ -70,49 +70,97 @@
       "Switch to Desktop 9" = "Meta+9";
       "Switch to Desktop 10" = "Meta+0";
 
+      # Switch desktop directionally
+      "Switch One Desktop to the Left" = "Meta+Shift+H";
+      "Switch One Desktop to the Right" = "Meta+Shift+L";
+
       # Move window to adjacent desktops
-      "Window to Desktop Left" = "Meta+Ctrl+H";
-      "Window to Desktop Right" = "Meta+Ctrl+L";
+      "Window One Desktop to the Left" = "Meta+Ctrl+H";
+      "Window One Desktop to the Right" = "Meta+Ctrl+L";
+
+      # Move window to specific desktop (Meta+Shift+number)
+      "Window to Desktop 1" = "Meta+!";
+      "Window to Desktop 2" = "Meta+@";
+      "Window to Desktop 3" = "Meta+#";
+      "Window to Desktop 4" = "Meta+$";
+      "Window to Desktop 5" = "Meta+%";
+      "Window to Desktop 6" = "Meta+^";
+      "Window to Desktop 7" = "Meta+&";
+      "Window to Desktop 8" = "Meta+*";
+      "Window to Desktop 9" = "Meta+(";
+      "Window to Desktop 10" = "Meta+)";
+
+      # Move window between screens
+      "Window One Screen to the Left" = "Ctrl+Alt+H";
+      "Window One Screen to the Right" = "Ctrl+Alt+L";
+      "Window One Screen Up" = "Ctrl+Alt+K";
+      "Window One Screen Down" = "Ctrl+Alt+J";
 
       # Window management
       "Window Close" = "Meta+Q";
-      "Window Maximize" = "Meta+Up";
-      "Window Minimize" = "Meta+Down";
+      "Window Minimize" = "Meta+M";
       "Window No Border" = "Meta+Backspace";
 
       # Overview / grid
       "Overview" = "Meta+W";
-      "Show Desktop Grid" = "Meta+Shift+W";
+      "ShowDesktopGrid" = "Meta+Shift+W";
 
       # Walk through windows
       "Walk Through Windows" = "Meta+Tab";
+      "Walk Through Windows (Reverse)" = "Alt+Shift+Backtab";
+      "Walk Through Windows of Current Application" = "Alt+`";
+      "Walk Through Windows of Current Application (Reverse)" = "Alt+~";
+
+      # Zoom
+      "view_zoom_in" = "Meta++";
     };
 
     # KRunner
-    "org.kde.krunner.desktop"._launch = "Alt+Space";
+    "org.kde.krunner.desktop" = {
+      _launch = "Search,Alt+Space,Alt+F2";
+      RunClipboard = "Alt+Shift+F2";
+    };
 
-    # Media controls (group/action names may need adjustment after first build)
+    # Session management
+    ksmserver = {
+      "Lock Session" = "Meta+Esc";
+      "Log Out" = "Ctrl+Alt+Del";
+    };
+
+    # Media controls
     mediacontrol = {
-      playpausemedia = "Meta+/";
-      nextmedia = "Meta+.";
-      previousmedia = "Meta+,";
+      playpausemedia = "Media Play,Meta+/";
+      nextmedia = "Media Next,Meta+.";
+      previousmedia = "Meta+,,Media Previous";
+      pausemedia = "Media Pause";
+      stopmedia = "Media Stop";
+      mediavolumeup = "Meta+=,Meta+Num++";
+      mediavolumedown = "Meta+Num+-,Meta+-";
     };
 
-    # Volume
+    # Hardware volume keys
     kmix = {
-      increase_volume = "Meta+=";
-      decrease_volume = "Meta+-";
+      increase_volume = "Volume Up";
+      decrease_volume = "Volume Down";
+      mute = "Volume Mute";
+      increase_microphone_volume = "Microphone Volume Up";
+      decrease_microphone_volume = "Microphone Volume Down";
+      mic_mute = "Meta+Volume Mute,Microphone Mute";
     };
-  };
 
-  # ============================================================================
-  # SPECTACLE (screenshots)
-  # ============================================================================
-  programs.plasma.spectacle.shortcuts = {
-    captureEntireDesktop = "Print";
-    captureActiveWindow = "Meta+Print";
-    launch = "Meta+P";
-    captureRectangularRegion = "Meta+Shift+S";
+    # Spectacle (screenshots)
+    "org.kde.spectacle.desktop" = {
+      _launch = "Print";
+      ActiveWindowScreenShot = "Meta+Print";
+      FullScreenScreenShot = "Shift+Print";
+      RectangularRegionScreenShot = "Meta+P,Meta+Shift+Print";
+      WindowUnderCursorScreenShot = "Meta+Ctrl+Print";
+    };
+
+    # Accessibility
+    kaccess = {
+      "Toggle Screen Reader On and Off" = "Meta+Alt+S";
+    };
   };
 
   # ============================================================================
@@ -134,10 +182,10 @@
       key = "Meta+F";
       command = "firefox";
     };
-    "launch-obsidian" = {
-      name = "Launch Obsidian";
-      key = "Meta+O";
-      command = "obsidian";
+    "launch-btop" = {
+      name = "Launch btop";
+      key = "Meta+B";
+      command = "kitty btop";
     };
   };
 
@@ -147,6 +195,7 @@
   programs.plasma.panels = [
     {
       location = "top";
+      screen = 0;
       height = 32;
       floating = false;
       alignment = "center";

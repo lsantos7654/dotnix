@@ -28,7 +28,6 @@
         noiseStrength = 3;
       };
       translucency.enable = true;
-      desktopSwitching.animation = "slide";
       windowOpenClose.animation = "glide";
       minimization.animation = "magiclamp";
     };
@@ -46,6 +45,18 @@
       };
     };
   };
+
+  # KWin: desktop navigation wraps around
+  programs.plasma.configFile."kwinrc"."Windows"."RollOverDesktops" = true;
+
+  # KWin: focus follows mouse
+  programs.plasma.configFile."kwinrc"."Windows"."FocusPolicy" = "FocusFollowsMouse";
+
+  # KWin: dim inactive windows
+  programs.plasma.configFile."kwinrc"."Plugins"."diminactiveEnabled" = true;
+
+  # KWin: virtual desktops only affect primary screen
+  programs.plasma.configFile."kwinrc"."Plugins"."virtualdesktopsonlyonprimaryEnabled" = true;
 
   # ============================================================================
   # SHORTCUTS
@@ -201,14 +212,12 @@
       alignment = "center";
       hiding = "normalpanel";
       widgets = [
-        "org.kde.plasma.kickoff"
         {
-          iconTasks = {
-            launchers = [
-              "applications:kitty.desktop"
-              "applications:org.kde.dolphin.desktop"
-              "applications:firefox.desktop"
-            ];
+          name = "org.kde.plasma.pager";
+          config.General = {
+            showOnlyCurrentScreen = true;
+            showApplicationIconsOnWindowOutlines = true;
+            wrapPage = true;
           };
         }
         "org.kde.plasma.panelspacer"

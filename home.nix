@@ -222,6 +222,13 @@
 
         # ── Powerlevel10k ───────────────────────────────────────────────
         [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+        # ── Hivemind ─────────────────────────────────────────────────────
+        _hivemind_completion() {
+          eval $(env _TYPER_COMPLETE_ARGS="''${words[1,$CURRENT]}" _HIVEMIND_COMPLETE=complete_zsh hivemind)
+        }
+
+        compdef _hivemind_completion hivemind
       ''
     ];
 

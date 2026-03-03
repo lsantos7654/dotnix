@@ -17,6 +17,9 @@
     useUserPackages = true;
     users.santos = import ./home.nix;
     backupFileExtension = "backup";
+    sharedModules = [
+      inputs.plasma-manager.homeModules.plasma-manager
+    ];
   };
 
   # Bootloader.
@@ -28,7 +31,6 @@
 
   # ACPI fix for your ASUS Z690-E board
   boot.kernelParams = [
-    "nomodeset"  # REMOVE THIS LINE once NVIDIA drivers are working
     "acpi_osi=!"
     ''acpi_osi="Windows 2022"''
   ];
@@ -74,6 +76,7 @@
 
   hardware.nvidia = {
     modesetting.enable = true;
+    powerManagement.enable = true;
     open = true;  # REQUIRED for RTX 50 series
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.latest;
@@ -132,6 +135,16 @@
   # Install firefox.
   programs.firefox.enable = true;
 
+  # KDE Connect (also opens firewall ports)
+  programs.kdeconnect.enable = true;
+
+  # Qt theming via Kvantum
+  qt = {
+    enable = true;
+    style = "kvantum";
+    platformTheme = "kde";
+  };
+
   # Steam
   programs.steam = {
     enable = true;
@@ -156,6 +169,11 @@
     claude-code
     mangohud      # FPS overlay for games
     protonup-qt   # manage Proton versions for Steam
+
+    # KDE Plasma extras
+    papirus-icon-theme
+    plasmusic-toolbar
+    polonium
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

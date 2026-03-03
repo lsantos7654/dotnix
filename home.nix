@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
+  imports = [ ./plasma.nix ];
   home.username = "santos";
   home.homeDirectory = "/home/santos";
   home.stateVersion = "25.11";
@@ -35,16 +36,10 @@
     python3         # For various plugins
     gcc             # For treesitter compilation
     gnumake
-    unzip           # For Mason
+    unzip           # For plugin installers
     cargo           # For some LSP servers
     luajit          # Lua runtime
     luarocks        # Lua package manager
-
-    # LSP servers (can also be managed by Mason, but Nix is more reliable)
-    lua-language-server
-    nil             # Nix LSP
-    pyright         # Python LSP
-    nodePackages.typescript-language-server
   ];
 
   # ============================================================================
@@ -436,11 +431,40 @@
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
+    extraPackages = with pkgs; [
+      # LSP servers
+      lua-language-server
+      nil                          # Nix LSP
+      pyright
+      typescript-language-server
+      clang-tools                  # clangd + clang-format
+      vscode-langservers-extracted # jsonls, html, cssls, eslint
+      bash-language-server
+
+      # Formatters
+      stylua
+      ruff                         # Python formatter + linter
+      black
+      isort
+      prettier
+      shfmt
+      codespell
+      fixjson
+
+      # Linters
+      mypy
+      shellcheck
+
+      # Debuggers
+      python3Packages.debugpy
+
+      # Plugin dependencies
+      imagemagick                  # for image.nvim
+    ];
   };
 
-  # Symlink your existing neovim config
   home.file.".config/nvim" = {
-    source = config.lib.file.mkOutOfStoreSymlink "/home/santos/project/dotnvim";
+    source = config.lib.file.mkOutOfStoreSymlink "/home/santos/dotnix/config/nvim";
   };
 
   # Powerlevel10k config (symlinked so `p10k configure` can edit in-place)
@@ -456,7 +480,7 @@
   # ============================================================================
   programs.git = {
     enable = true;
-    userName = "Lucas Santos";  # Update if needed
-    # userEmail = "your@email.com";  # Uncomment and set
+    settings.user.name = "Lucas Santos";
+    # settings.user.email = "your@email.com";  # Uncomment and set
   };
 }

@@ -416,7 +416,7 @@
       set -g status-style "bg=default,fg=white"
       set -g status-left ""
       set -g status-right "#[fg=brightblack]#S"
-      set -g status-justify left
+      set -g status-justify centre
       set -g window-status-format "#[fg=brightblack] #I #W "
       set -g window-status-current-format "#[fg=white,bold] #I #W "
       set -g status-position bottom

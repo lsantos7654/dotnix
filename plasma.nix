@@ -28,6 +28,7 @@
         noiseStrength = 3;
       };
       translucency.enable = true;
+      desktopSwitching.animation = "off";
       windowOpenClose.animation = "glide";
       minimization.animation = "magiclamp";
     };
@@ -68,6 +69,12 @@
       "Switch Window Down" = "Meta+J";
       "Switch Window Up" = "Meta+K";
       "Switch Window Right" = "Meta+L";
+
+      # Vim-style window moving
+      "PoloniumInsertAbove" = "Meta+Alt+K";
+      "PoloniumInsertBelow" = "Meta+Alt+J";
+      "PoloniumInsertLeft" = "Meta+Alt+H";
+      "PoloniumInsertRight" = "Meta+Alt+L";
 
       # Desktop switching
       "Switch to Desktop 1" = "Meta+1";
@@ -110,20 +117,13 @@
       # Window management
       "Window Close" = "Meta+Q";
       "Window Minimize" = "Meta+M";
-      "Window No Border" = "Meta+Backspace";
 
       # Overview / grid
       "Overview" = "Meta+W";
-      "ShowDesktopGrid" = "Meta+Shift+W";
 
       # Walk through windows
       "Walk Through Windows" = "Meta+Tab";
-      "Walk Through Windows (Reverse)" = "Alt+Shift+Backtab";
-      "Walk Through Windows of Current Application" = "Alt+`";
-      "Walk Through Windows of Current Application (Reverse)" = "Alt+~";
-
-      # Zoom
-      "view_zoom_in" = "Meta++";
+      "Walk Through Windows (Reverse)" = "Meta+Shift+Tab";
     };
 
     # KRunner
@@ -140,13 +140,11 @@
 
     # Media controls
     mediacontrol = {
-      playpausemedia = "Media Play,Meta+/";
-      nextmedia = "Media Next,Meta+.";
-      previousmedia = "Meta+,,Media Previous";
-      pausemedia = "Media Pause";
-      stopmedia = "Media Stop";
-      mediavolumeup = "Meta+=,Meta+Num++";
-      mediavolumedown = "Meta+Num+-,Meta+-";
+      playpausemedia = "Meta+/";
+      nextmedia = "Meta+.";
+      previousmedia = "Meta+,";
+      mediavolumeup = "Meta+=";
+      mediavolumedown = "Meta+-";
     };
 
     # Hardware volume keys
@@ -161,11 +159,11 @@
 
     # Spectacle (screenshots)
     "org.kde.spectacle.desktop" = {
-      _launch = "Print";
-      ActiveWindowScreenShot = "Meta+Print";
-      FullScreenScreenShot = "Shift+Print";
-      RectangularRegionScreenShot = "Meta+P,Meta+Shift+Print";
-      WindowUnderCursorScreenShot = "Meta+Ctrl+Print";
+      # _launch = "Print";
+      ActiveWindowScreenShot = "Meta+Shift+P";
+      # FullScreenScreenShot = "Meta+Shift+P";
+      RectangularRegionScreenShot = "Meta+P";
+      # WindowUnderCursorScreenShot = "Meta+Ctrl+Print";
     };
 
     # Accessibility
@@ -213,11 +211,17 @@
       hiding = "normalpanel";
       widgets = [
         {
-          name = "org.kde.plasma.pager";
-          config.General = {
-            showOnlyCurrentScreen = true;
-            showApplicationIconsOnWindowOutlines = true;
-            wrapPage = true;
+          pager = {
+            general = {
+              showOnlyCurrentScreen = true;
+              showApplicationIconsOnWindowOutlines = true;
+              navigationWrapsAround = true;
+            };
+          };
+        }
+        {
+          iconTasks = {
+            launchers = [];
           };
         }
         "org.kde.plasma.panelspacer"
@@ -246,6 +250,30 @@
           };
         }
       ];
+    }
+  ];
+
+  # ============================================================================
+  # WINDOW RULES
+  # ============================================================================
+  programs.plasma.window-rules = [
+    {
+      description = "transparent windows";
+      match = {
+        window-types = [
+          "normal"
+          "toolbar"
+          "torn-of-menu"
+          "dialog"
+          "menubar"
+          "utility"
+          "osd"
+        ];
+      };
+      apply = {
+        activeOpacity = { value = 90; apply = "force"; };
+        inactiveOpacity = { value = 90; apply = "force"; };
+      };
     }
   ];
 

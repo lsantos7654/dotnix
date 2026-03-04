@@ -20,8 +20,6 @@
   "log-highlight.nvim": { "branch": "main", "commit": "cac07cf2d1937038f6627a450bef4664f096b120" },
   "luarocks.nvim": { "branch": "main", "commit": "1db9093915eb16ba2473cfb8d343ace5ee04130a" },
   "marks.nvim": { "branch": "master", "commit": "f353e8c08c50f39e99a9ed474172df7eddd89b72" },
-  "mason-lspconfig.nvim": { "branch": "main", "commit": "0b9bb925c000ae649ff7e7149c8cd00031f4b539" },
-  "mason.nvim": { "branch": "main", "commit": "57e5a8addb8c71fb063ee4acda466c7cf6ad2800" },
   "mkdnflow.nvim": { "branch": "main", "commit": "d459bd7ce68910272038ed037c028180161fd14d" },
   "molten-nvim": { "branch": "main", "commit": "a286aa914d9a154bc359131aab788b5a077a5a99" },
   "nabla.nvim": { "branch": "master", "commit": "9b69b709063ccf40ac36fabb4fff7d90b3736475" },

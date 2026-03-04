@@ -14,6 +14,7 @@
       imports = [
         inputs.dothome.homeModules.default
         ./plasma
+        ./firefox
       ];
       home.username = "santos";
       home.homeDirectory = "/home/santos";
@@ -115,7 +116,6 @@
   ];
 
   # Applications
-  programs.firefox.enable = true;
   programs.kdeconnect.enable = true;
 
   # Qt theming via Kvantum

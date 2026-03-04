@@ -1,56 +1,48 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running 'nixos-help').
-
 { config, pkgs, inputs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.home-manager
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.home-manager
+  ];
 
   # Home Manager configuration
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.santos = import ./home.nix;
+    users.santos = {
+      imports = [
+        inputs.dothome.homeModules.default
+        ./plasma
+      ];
+      home.username = "santos";
+      home.homeDirectory = "/home/santos";
+    };
     backupFileExtension = "backup";
     sharedModules = [
       inputs.plasma-manager.homeModules.plasma-manager
     ];
   };
 
-  # Bootloader.
+  # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Use latest kernel (better for new hardware like RTX 50 series)
   boot.kernelPackages = pkgs.linuxPackages_6_18;
 
-  # ACPI fix for your ASUS Z690-E board
+  # ACPI fix for ASUS Z690-E board
   boot.kernelParams = [
     "acpi_osi=!"
     ''acpi_osi="Windows 2022"''
   ];
 
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
+  networking.hostName = "nixos";
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
+  # Locale
   time.timeZone = "America/New_York";
-
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
     LC_IDENTIFICATION = "en_US.UTF-8";
@@ -63,17 +55,13 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
+  # Display / Desktop
   services.xserver.enable = true;
-
-  # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
   # NVIDIA driver
   services.xserver.videoDrivers = [ "nvidia" ];
-
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = true;
@@ -85,19 +73,19 @@
   # Graphics / OpenGL
   hardware.graphics = {
     enable = true;
-    enable32Bit = true;  # needed for Steam / 32-bit games
+    enable32Bit = true;
   };
 
-  # Configure keymap in X11
+  # Keyboard
   services.xserver.xkb = {
     layout = "us";
     variant = "";
   };
 
-  # Enable CUPS to print documents.
+  # Printing
   services.printing.enable = true;
 
-  # Enable sound with pipewire.
+  # Audio (PipeWire)
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -105,40 +93,29 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Enable zsh system-wide
+  # Shell
   programs.zsh.enable = true;
 
   # Passwordless sudo for wheel group
   security.sudo.wheelNeedsPassword = false;
 
-  # Define a user account. Don't forget to set a password with 'passwd'.
+  # User account
   users.users.santos = {
     isNormalUser = true;
     description = "Lucas Santos";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
-    packages = with pkgs; [
-      kdePackages.kate
-    #  thunderbird
-    ];
   };
 
-  # Enable fonts
+  # Fonts
   fonts.packages = with pkgs; [
     nerd-fonts.hack
   ];
 
-  # Install firefox.
+  # Applications
   programs.firefox.enable = true;
-
-  # KDE Connect (also opens firewall ports)
   programs.kdeconnect.enable = true;
 
   # Qt theming via Kvantum
@@ -151,13 +128,11 @@
   # Steam
   programs.steam = {
     enable = true;
-    gamescopeSession.enable = true;  # nice for gaming sessions
+    gamescopeSession.enable = true;
   };
-
-  # Gamepad support
   hardware.steam-hardware.enable = true;
 
-  # Allow unfree packages (needed for NVIDIA drivers, Steam, etc.)
+  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # System packages
@@ -170,8 +145,9 @@
     curl
     htop
     claude-code
-    mangohud      # FPS overlay for games
-    protonup-qt   # manage Proton versions for Steam
+    kdePackages.kate
+    mangohud
+    protonup-qt
 
     # KDE Plasma extras
     papirus-icon-theme
@@ -179,31 +155,5 @@
     polonium
   ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It's perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "25.11"; # Did you read the comment?
-
+  system.stateVersion = "25.11";
 }

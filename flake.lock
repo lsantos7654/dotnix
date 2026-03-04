@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "dothome": {
+      "inputs": {
+        "home-manager": [
+          "home-manager"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1772586832,
+        "narHash": "sha256-GL4DE7/zxzhV2sdNusepGfYEOYBuPPmKfBppxPeimgo=",
+        "path": "/home/santos/dothome",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/santos/dothome",
+        "type": "path"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -61,6 +81,7 @@
     },
     "root": {
       "inputs": {
+        "dothome": "dothome",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "plasma-manager": "plasma-manager"

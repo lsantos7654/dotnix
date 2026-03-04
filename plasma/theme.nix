@@ -57,6 +57,10 @@ in
       theme = "breeze_cursors";
       size = 24;
     };
+    windowDecorations = {
+      library = "org.kde.kwin.aurorae";
+      theme = "__aurorae__svg__Ant-Dark";
+    };
   };
 
   programs.plasma.kwin = {
@@ -92,10 +96,16 @@ in
   # Krohnkite tiling script
   programs.plasma.configFile.kwinrc.Plugins.krohnkiteEnabled = true;
   programs.plasma.configFile.kwinrc."Script-krohnkite" = {
-    noTileBorder = true;
-    soleWindowNoBorders = true;
-    soleWindowNoGaps = true;
-    floatUtility = true;
     directionalKeyFocus = false;
+    floatUtility = true;
+    layoutPerActivity = false;
+    layoutPerDesktop = false;
+    monocleMaximize = false;
+    noTileBorder = true;
+    screenGapBetween = 5;
+    screenGapBottom = 5;
+    screenGapLeft = 5;
+    screenGapRight = 5;
+    screenGapTop = 5;
   };
 }

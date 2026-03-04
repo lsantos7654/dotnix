@@ -1,4 +1,4 @@
-{ pkgs-stable, ... }: { config, lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   imports = [ ./plasma.nix ];
@@ -15,9 +15,6 @@
   home.packages = with pkgs; [
     # Fonts
     nerd-fonts.hack
-
-    # KDE effects
-    pkgs-stable.kde-rounded-corners
 
     # Terminal utilities
     wl-clipboard    # Wayland clipboard (wl-copy, wl-paste)

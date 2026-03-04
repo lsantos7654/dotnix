@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 let
   kwin-geometry-change = pkgs.fetchFromGitHub {
@@ -9,6 +9,9 @@ let
   };
 in
 {
+  home.packages = [
+  ];
+
   # Install Geometry Change KWin effect
   xdg.dataFile."kwin/effects/kwin4_effect_geometry_change" = {
     source = "${kwin-geometry-change}/package";
@@ -74,6 +77,7 @@ in
 
   # KWin: geometry change animation for scripted/tiled window moves
   programs.plasma.configFile."kwinrc"."Plugins"."kwin4_effect_geometry_changeEnabled" = true;
+
 
   # ============================================================================
   # SHORTCUTS
@@ -244,7 +248,7 @@ in
         {
           digitalClock = {
             date.enable = true;
-            time.format = "24h";
+            time.format = "12h";
           };
         }
         "org.kde.plasma.panelspacer"
@@ -272,26 +276,14 @@ in
   # ============================================================================
   # WINDOW RULES
   # ============================================================================
-  programs.plasma.window-rules = [
-    {
-      description = "transparent windows";
-      match = {
-        window-types = [
-          "normal"
-          "toolbar"
-          "torn-of-menu"
-          "dialog"
-          "menubar"
-          "utility"
-          "osd"
-        ];
-      };
-      apply = {
-        activeOpacity = { value = 90; apply = "force"; };
-        inactiveOpacity = { value = 90; apply = "force"; };
-      };
-    }
-  ];
+  programs.plasma.configFile."kwinrulesrc"."8b3c5761-f721-40fb-a137-7c192b614bd2"."Description" = "Transparent Windows";
+  programs.plasma.configFile."kwinrulesrc"."8b3c5761-f721-40fb-a137-7c192b614bd2"."opacityactive" = 90;
+  programs.plasma.configFile."kwinrulesrc"."8b3c5761-f721-40fb-a137-7c192b614bd2"."opacityactiverule" = 2;
+  programs.plasma.configFile."kwinrulesrc"."8b3c5761-f721-40fb-a137-7c192b614bd2"."opacityinactive" = 90;
+  programs.plasma.configFile."kwinrulesrc"."8b3c5761-f721-40fb-a137-7c192b614bd2"."opacityinactiverule" = 2;
+  programs.plasma.configFile."kwinrulesrc"."8b3c5761-f721-40fb-a137-7c192b614bd2"."types" = 65981;
+  programs.plasma.configFile."kwinrulesrc"."General"."count" = 1;
+  programs.plasma.configFile."kwinrulesrc"."General"."rules" = "8b3c5761-f721-40fb-a137-7c192b614bd2";
 
   # ============================================================================
   # KVANTUM THEME

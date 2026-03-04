@@ -136,6 +136,9 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
 
+  # Ensure KWin effect plugins are linked into the system profile
+  environment.pathsToLink = [ "/lib/qt-6/plugins/kwin/effects/plugins" ];
+
   # System packages
   environment.systemPackages = with pkgs; [
     vim

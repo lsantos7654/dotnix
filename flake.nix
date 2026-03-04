@@ -24,12 +24,20 @@
   outputs = { self, nixpkgs, home-manager, plasma-manager, dothome, ... }@inputs:
   let
     system = "x86_64-linux";
+    overlay-kde-rounded-corners = final: prev: {
+      kde-rounded-corners = prev.kde-rounded-corners.overrideAttrs (old: {
+        patches = (old.patches or []) ++ [
+          ./patches/kde-rounded-corners-kwin-region.patch
+        ];
+      });
+    };
   in
   {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = { inherit inputs; };
       modules = [
+        { nixpkgs.overlays = [ overlay-kde-rounded-corners ]; }
         ./configuration.nix
       ];
     };

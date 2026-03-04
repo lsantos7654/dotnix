@@ -154,6 +154,7 @@
     papirus-icon-theme
     plasmusic-toolbar
     kdePackages.krohnkite
+    kde-rounded-corners
   ];
 
   system.stateVersion = "25.11";

@@ -93,6 +93,10 @@ in
   programs.plasma.configFile.kwinrc.Plugins.virtualdesktopsonlyonprimaryEnabled = true;
   programs.plasma.configFile.kwinrc.Plugins.kwin4_effect_geometry_changeEnabled = true;
 
+  # KDE Rounded Corners
+  programs.plasma.configFile.kwinrc.Plugins.shapecornersEnabled = true;
+  programs.plasma.configFile.kwinrc."Effect-shapecorners".CornerRadius = 8;
+
   # Krohnkite tiling script
   programs.plasma.configFile.kwinrc.Plugins.krohnkiteEnabled = true;
   programs.plasma.configFile.kwinrc."Script-krohnkite" = {

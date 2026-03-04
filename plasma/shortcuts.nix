@@ -9,11 +9,11 @@
       "Switch Window Up" = "Meta+K";
       "Switch Window Right" = "Meta+L";
 
-      # Vim-style window moving
-      "PoloniumInsertAbove" = "Meta+Alt+K";
-      "PoloniumInsertBelow" = "Meta+Alt+J";
-      "PoloniumInsertLeft" = "Meta+Alt+H";
-      "PoloniumInsertRight" = "Meta+Alt+L";
+      # Krohnkite window moving
+      "KrohnkiteShiftUp" = "Meta+Alt+K";
+      "KrohnkiteShiftDown" = "Meta+Alt+J";
+      "KrohnkiteShiftLeft" = "Meta+Alt+H";
+      "KrohnkiteShiftRight" = "Meta+Alt+L";
 
       # Desktop switching
       "Switch to Desktop 1" = "Meta+1";

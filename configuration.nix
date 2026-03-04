@@ -132,7 +132,8 @@
   };
   hardware.steam-hardware.enable = true;
 
-  # Allow unfree packages
+  # Nix settings
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
 
   # System packages

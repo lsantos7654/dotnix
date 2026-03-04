@@ -15,7 +15,7 @@
     };
 
     dothome = {
-      url = "path:/home/santos/dothome";
+      url = "github:lsantos7654/dothome";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };

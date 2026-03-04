@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running 'nixos-help').
 
-{ config, pkgs, pkgs-stable, inputs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
@@ -15,7 +15,7 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.santos = import ./home.nix { inherit pkgs-stable; };
+    users.santos = import ./home.nix;
     backupFileExtension = "backup";
     sharedModules = [
       inputs.plasma-manager.homeModules.plasma-manager

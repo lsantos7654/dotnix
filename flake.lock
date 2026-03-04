@@ -10,14 +10,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1772586832,
-        "narHash": "sha256-GL4DE7/zxzhV2sdNusepGfYEOYBuPPmKfBppxPeimgo=",
-        "path": "/home/santos/dothome",
-        "type": "path"
+        "lastModified": 1772587816,
+        "narHash": "sha256-SwuXXeNteFkfKVrtOClNr6LMz4UVThJeYd29s9SWba0=",
+        "owner": "lsantos7654",
+        "repo": "dothome",
+        "rev": "abcac859de27c0696bbce991443eb098774934a2",
+        "type": "github"
       },
       "original": {
-        "path": "/home/santos/dothome",
-        "type": "path"
+        "owner": "lsantos7654",
+        "repo": "dothome",
+        "type": "github"
       }
     },
     "home-manager": {

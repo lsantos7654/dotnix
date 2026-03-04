@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ pkgs-stable, ... }: { config, lib, pkgs, ... }:
 
 {
   imports = [ ./plasma.nix ];
@@ -16,20 +16,23 @@
     # Fonts
     nerd-fonts.hack
 
+    # KDE effects
+    pkgs-stable.kde-rounded-corners
+
     # Terminal utilities
     wl-clipboard    # Wayland clipboard (wl-copy, wl-paste)
     ripgrep         # Fast grep (for telescope)
     fd              # Fast find (for telescope)
     fzf             # Fuzzy finder
-    lazygit         # Git TUI
     bat             # Better cat
     eza             # Modern ls replacement
     zoxide          # Smarter cd
     glow            # Markdown renderer
     tree            # Directory tree
     uv              # Fast Python package manager
-    google-cloud-sdk
     zsh-powerlevel10k
+    neofetch
+    cmatrix
 
     # Neovim dependencies
     nodejs          # For LSP servers
@@ -481,6 +484,6 @@
   programs.git = {
     enable = true;
     settings.user.name = "Lucas Santos";
-    # settings.user.email = "your@email.com";  # Uncomment and set
+    settings.user.email = "lsantos7654@gmail.com";
   };
 }

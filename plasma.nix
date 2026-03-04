@@ -1,6 +1,19 @@
 { pkgs, ... }:
 
+let
+  kwin-geometry-change = pkgs.fetchFromGitHub {
+    owner = "peterfajdiga";
+    repo = "kwin4_effect_geometry_change";
+    rev = "v1.5";
+    hash = "sha256-p4FpqagR8Dxi+r9A8W5rGM5ybaBXP0gRKAuzigZ1lyA=";
+  };
+in
 {
+  # Install Geometry Change KWin effect
+  xdg.dataFile."kwin/effects/kwin4_effect_geometry_change" = {
+    source = "${kwin-geometry-change}/package";
+    recursive = true;
+  };
   programs.plasma.enable = true;
   programs.plasma.overrideConfig = true;
   # ============================================================================
@@ -58,6 +71,9 @@
 
   # KWin: virtual desktops only affect primary screen
   programs.plasma.configFile."kwinrc"."Plugins"."virtualdesktopsonlyonprimaryEnabled" = true;
+
+  # KWin: geometry change animation for scripted/tiled window moves
+  programs.plasma.configFile."kwinrc"."Plugins"."kwin4_effect_geometry_changeEnabled" = true;
 
   # ============================================================================
   # SHORTCUTS

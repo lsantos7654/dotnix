@@ -93,6 +93,9 @@ in
   programs.plasma.configFile.kwinrc.Plugins.virtualdesktopsonlyonprimaryEnabled = true;
   programs.plasma.configFile.kwinrc.Plugins.kwin4_effect_geometry_changeEnabled = true;
 
+  # Spanning wallpaper (split into 3x 2560x1440 per monitor)
+  programs.plasma.configFile.plasmarc.Wallpapers.usersWallpapers = "${../wallpapers/left.jpg},${../wallpapers/center.jpg},${../wallpapers/right.jpg}";
+
   # KDE Rounded Corners
   programs.plasma.configFile.kwinrc.Plugins.shapecornersEnabled = true;
   programs.plasma.configFile.kwinrc."Effect-shapecorners".CornerRadius = 8;

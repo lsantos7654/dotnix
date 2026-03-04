@@ -1,6 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 let
+  wallpaperDir = "${config.home.homeDirectory}/wallpapers";
   ant-dark-kde = pkgs.fetchFromGitHub {
     owner = "EliverLara";
     repo = "Ant";
@@ -92,7 +93,10 @@ in
   programs.plasma.configFile.kwinrc.Plugins.kwin4_effect_geometry_changeEnabled = true;
 
   # Spanning wallpaper (split into 3x 2560x1440 per monitor)
-  programs.plasma.configFile.plasmarc.Wallpapers.usersWallpapers = "${../wallpapers/left.jpg},${../wallpapers/center.jpg},${../wallpapers/right.jpg}";
+  home.file."wallpapers/left.jpg".source = ../wallpapers/left.jpg;
+  home.file."wallpapers/center.jpg".source = ../wallpapers/center.jpg;
+  home.file."wallpapers/right.jpg".source = ../wallpapers/right.jpg;
+  programs.plasma.configFile.plasmarc.Wallpapers.usersWallpapers = "${wallpaperDir}/left.jpg,${wallpaperDir}/center.jpg,${wallpaperDir}/right.jpg";
 
   # KDE Rounded Corners
   programs.plasma.configFile.kwinrc.Plugins.shapecornersEnabled = true;

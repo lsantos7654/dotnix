@@ -10,10 +10,4 @@
   programs.plasma.configFile."kwinrulesrc"."8b3c5761-f721-40fb-a137-7c192b614bd2"."types" = 65981;
   programs.plasma.configFile."kwinrulesrc"."General"."count" = 1;
   programs.plasma.configFile."kwinrulesrc"."General"."rules" = "8b3c5761-f721-40fb-a137-7c192b614bd2";
-
-  # Kvantum theme
-  xdg.configFile."Kvantum/kvantum.kvconfig".text = ''
-    [General]
-    theme=KvGnomeDark
-  '';
 }

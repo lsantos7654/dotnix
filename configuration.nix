@@ -153,7 +153,7 @@
     # KDE Plasma extras
     papirus-icon-theme
     plasmusic-toolbar
-    polonium
+    kdePackages.krohnkite
   ];
 
   system.stateVersion = "25.11";

@@ -68,9 +68,7 @@ in
 
     effects = {
       blur = {
-        enable = true;
-        strength = 8;
-        noiseStrength = 3;
+        enable = false;
       };
       translucency.enable = true;
       desktopSwitching.animation = "off";

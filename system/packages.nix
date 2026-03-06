@@ -19,7 +19,7 @@
     gh
     curl
     wget
-    btop
+    (btop.override { cudaSupport = true; })
     htop
     claude-code
 

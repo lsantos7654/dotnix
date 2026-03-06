@@ -152,6 +152,7 @@
     kdePackages.kate
     mangohud
     protonup-qt
+    spotify
 
     # KDE Plasma extras
     papirus-icon-theme

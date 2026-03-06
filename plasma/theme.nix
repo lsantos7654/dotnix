@@ -92,6 +92,13 @@ in
   programs.plasma.configFile.kwinrc.Plugins.virtualdesktopsonlyonprimaryEnabled = true;
   programs.plasma.configFile.kwinrc.Plugins.kwin4_effect_geometry_changeEnabled = true;
 
+  # Night Color (blue light filter)
+  programs.plasma.configFile.kwinrc.NightColor.Active = true;
+  programs.plasma.configFile.kwinrc.NightColor.NightTemperature = 6000;
+
+  # Disable overview hot corner
+  programs.plasma.configFile.kwinrc."Effect-overview".BorderActivate = 9;
+
   # Spanning wallpaper (split into 3x 2560x1440 per monitor)
   home.file."wallpapers/left.jpg".source = ../wallpapers/left.jpg;
   home.file."wallpapers/center.jpg".source = ../wallpapers/center.jpg;

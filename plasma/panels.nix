@@ -32,16 +32,30 @@
           };
         }
         "org.kde.plasma.panelspacer"
-        "plasmusic-toolbar"
+        {
+          plasmusicToolbar = {
+            settings = {
+              General = {
+                iconInPanel = false;
+                playPauseControlInPanel = false;
+                skipBackwardControlInPanel = false;
+                skipForwardControlInPanel = false;
+              };
+              Shortcuts = {
+                global = "Meta+\\";
+              };
+            };
+          };
+        }
         {
           systemTray = {
             items.shown = [
               "org.kde.plasma.volume"
               "org.kde.plasma.networkmanagement"
               "org.kde.plasma.bluetooth"
-              "org.kde.plasma.battery"
             ];
             items.hidden = [
+              "org.kde.plasma.battery"
               "org.kde.plasma.clipboard"
               "org.kde.plasma.notifications"
               "org.kde.plasma.printmanager"

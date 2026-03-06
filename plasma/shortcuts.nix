@@ -16,6 +16,10 @@
       "KrohnkiteShiftRight" = "Meta+Alt+L";
       "KrohnkiteRotate" = "Meta+R";
       "KrohnkiteNextLayout" = [ ];
+      "KrohnkiteFocusRight" = [ ];
+      "KrohnkiteFocusLeft" = [ ];
+      "KrohnkiteFocusUp" = [ ];
+      "KrohnkiteFocusDown" = [ ];
 
       # Desktop switching
       "Switch to Desktop 1" = "Meta+1";

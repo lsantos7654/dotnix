@@ -108,6 +108,10 @@
     kaccess = {
       "Toggle Screen Reader On and Off" = "Meta+Alt+S";
     };
+
+    # Managed by plasma-manager to clear stale widget shortcut entries on rebuild.
+    # PlasMusic shortcut is set via Shortcuts.global in panels.nix.
+    plasmashell = { };
   };
 
   # Application hotkeys

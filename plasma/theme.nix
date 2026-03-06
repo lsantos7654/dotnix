@@ -83,6 +83,21 @@ in
 
   };
 
+  # Disable auto-lock and sleep
+  programs.plasma.configFile.kscreenlockerrc.Daemon.Autolock = false;
+  programs.plasma.configFile.kscreenlockerrc.Daemon.LockOnResume = false;
+  programs.plasma.configFile.kscreenlockerrc.Daemon.Timeout = 0;
+
+  # Disable power management (suspend, dim, turn off display)
+  programs.plasma.powerdevil = {
+    AC = {
+      autoSuspend.action = "nothing";
+      powerButtonAction = "nothing";
+      dimDisplay.enable = false;
+      turnOffDisplay.idleTimeout = "never";
+    };
+  };
+
   # KWin extra settings
   programs.plasma.configFile.kwinrc.Windows.RollOverDesktops = true;
   programs.plasma.configFile.kwinrc.Windows.FocusPolicy = "FocusFollowsMouse";

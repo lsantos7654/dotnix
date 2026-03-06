@@ -10,11 +10,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1772587816,
-        "narHash": "sha256-SwuXXeNteFkfKVrtOClNr6LMz4UVThJeYd29s9SWba0=",
+        "lastModified": 1772764731,
+        "narHash": "sha256-RWCX1e4lwMqCmahqhD+VZY3gx/A02mTucJrDS1SSp9o=",
         "owner": "lsantos7654",
         "repo": "dothome",
-        "rev": "abcac859de27c0696bbce991443eb098774934a2",
+        "rev": "fcb9dc034ab5d870d3017985e42a43c8cdccfa3b",
         "type": "github"
       },
       "original": {

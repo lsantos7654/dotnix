@@ -49,7 +49,6 @@ in
   # ── Activate theme via plasma-manager ─────────────────────────────────────
 
   programs.plasma.workspace = {
-    lookAndFeel = "Ant-Dark";
     colorScheme = "Ant-Dark";
     theme = "Ant-Dark";
     iconTheme = "Ant-Dark";
@@ -103,7 +102,11 @@ in
   home.file."wallpapers/left.jpg".source = ../wallpapers/left.jpg;
   home.file."wallpapers/center.jpg".source = ../wallpapers/center.jpg;
   home.file."wallpapers/right.jpg".source = ../wallpapers/right.jpg;
-  programs.plasma.configFile.plasmarc.Wallpapers.usersWallpapers = "${wallpaperDir}/left.jpg,${wallpaperDir}/center.jpg,${wallpaperDir}/right.jpg";
+  programs.plasma.workspace.wallpaper = [
+    "${wallpaperDir}/center.jpg"
+    "${wallpaperDir}/right.jpg"
+    "${wallpaperDir}/left.jpg"
+  ];
 
   # KDE Rounded Corners
   programs.plasma.configFile.kwinrc.Plugins.shapecornersEnabled = true;
@@ -112,16 +115,27 @@ in
   # Krohnkite tiling script
   programs.plasma.configFile.kwinrc.Plugins.krohnkiteEnabled = true;
   programs.plasma.configFile.kwinrc."Script-krohnkite" = {
+    binaryTreeLayoutOrder = 0;
+    cascadeLayoutOrder = 0;
+    columnsLayoutOrder = 0;
     directionalKeyFocus = false;
     floatUtility = true;
+    floatingLayoutOrder = 0;
     layoutPerActivity = false;
     layoutPerDesktop = false;
+    monocleLayoutOrder = 0;
     monocleMaximize = false;
     noTileBorder = true;
+    quarterLayoutOrder = 0;
     screenGapBetween = 5;
     screenGapBottom = 5;
     screenGapLeft = 5;
     screenGapRight = 5;
     screenGapTop = 5;
+    spiralLayoutOrder = 0;
+    spreadLayoutOrder = 0;
+    stackedLayoutOrder = 0;
+    stairLayoutOrder = 0;
+    threeColumnLayoutOrder = 0;
   };
 }

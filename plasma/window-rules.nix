@@ -1,13 +1,16 @@
 { ... }:
 
 {
-  # Window opacity rules
-  programs.plasma.configFile."kwinrulesrc"."8b3c5761-f721-40fb-a137-7c192b614bd2"."Description" = "Transparent Windows";
-  programs.plasma.configFile."kwinrulesrc"."8b3c5761-f721-40fb-a137-7c192b614bd2"."opacityactive" = 85;
-  programs.plasma.configFile."kwinrulesrc"."8b3c5761-f721-40fb-a137-7c192b614bd2"."opacityactiverule" = 2;
-  programs.plasma.configFile."kwinrulesrc"."8b3c5761-f721-40fb-a137-7c192b614bd2"."opacityinactive" = 85;
-  programs.plasma.configFile."kwinrulesrc"."8b3c5761-f721-40fb-a137-7c192b614bd2"."opacityinactiverule" = 2;
-  programs.plasma.configFile."kwinrulesrc"."8b3c5761-f721-40fb-a137-7c192b614bd2"."types" = 65981;
-  programs.plasma.configFile."kwinrulesrc"."General"."count" = 1;
-  programs.plasma.configFile."kwinrulesrc"."General"."rules" = "8b3c5761-f721-40fb-a137-7c192b614bd2";
+  programs.plasma.window-rules = [
+    {
+      description = "Transparent Windows";
+      match = {
+        window-types = [ "normal" "dialog" "utility" "toolbar" "torn-of-menu" "dock" "desktop" "spash" ];
+      };
+      apply = {
+        opacityactive = { value = 85; apply = "force"; };
+        opacityinactive = { value = 85; apply = "force"; };
+      };
+    }
+  ];
 }

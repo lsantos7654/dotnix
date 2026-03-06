@@ -26,12 +26,12 @@
       inputs.nixpkgs.follows = "nixpkgs-kde5";
     };
     plasma-manager-kde5 = {
-      url = "github:nix-community/plasma-manager/plasma5";
+      url = "github:nix-community/plasma-manager/plasma-5";
       inputs.nixpkgs.follows = "nixpkgs-kde5";
       inputs.home-manager.follows = "home-manager-kde5";
     };
     dothome-kde5 = {
-      url = "github:lsantos7654/dothome";
+      url = "github:lsantos7654/dothome/kde5";
       inputs.nixpkgs.follows = "nixpkgs-kde5";
       inputs.home-manager.follows = "home-manager-kde5";
     };

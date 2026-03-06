@@ -51,51 +51,47 @@ in
     colorScheme = "Ant-Dark";
     theme = "Ant-Dark";
     iconTheme = "Ant-Dark";
-    widgetStyle = "kvantum-dark";
-    cursor = {
-      theme = "breeze_cursors";
-      size = 24;
-    };
-    windowDecorations = {
-      library = "org.kde.kwin.aurorae";
-      theme = "__aurorae__svg__Ant-Dark";
-    };
+    cursorTheme = "breeze_cursors";
+  };
+
+  # Options not available in plasma-5 branch — use configFile
+  programs.plasma.configFile.kdeglobals.General.widgetStyle = "kvantum-dark";
+  programs.plasma.configFile.kcminputrc.Mouse.cursorSize = 24;
+  programs.plasma.configFile.kwinrc."org.kde.kdecoration2" = {
+    library = "org.kde.kwin.aurorae";
+    theme = "__aurorae__svg__Ant-Dark";
   };
 
   programs.plasma.kwin = {
-    borderlessMaximizedWindows = true;
-
-    effects = {
-      blur = {
-        enable = false;
-      };
-      translucency.enable = true;
-      desktopSwitching.animation = "off";
-      windowOpenClose.animation = "glide";
-      minimization.animation = "magiclamp";
-    };
-
     virtualDesktops = {
       names = [ "1" "2" "3" "4" "5" "6" "7" "8" "9" "10" ];
       rows = 1;
     };
   };
 
+  # Options not available in plasma-5 branch — use configFile
+  programs.plasma.configFile.kwinrc.Windows.BorderlessMaximizedWindows = true;
+  programs.plasma.configFile.kwinrc.Plugins = {
+    blurEnabled = false;
+    translucencyEnabled = true;
+    glideEnabled = true;
+    magiclampEnabled = true;
+    slideEnabled = false;
+    diminactiveEnabled = true;
+    virtualdesktopsonlyonprimaryEnabled = true;
+    krohnkiteEnabled = true;
+  };
+
   # KWin extra settings
   programs.plasma.configFile.kwinrc.Windows.RollOverDesktops = true;
   programs.plasma.configFile.kwinrc.Windows.FocusPolicy = "FocusFollowsMouse";
-  programs.plasma.configFile.kwinrc.Plugins.diminactiveEnabled = true;
   programs.plasma.configFile.kwinrc."Effect-diminactive".Strength = 40;
-  programs.plasma.configFile.kwinrc.Plugins.virtualdesktopsonlyonprimaryEnabled = true;
 
   # Spanning wallpaper (split into 3x 2560x1440 per monitor)
   home.file."wallpapers/left.jpg".source = ../../../shared/wallpapers/left.jpg;
   home.file."wallpapers/center.jpg".source = ../../../shared/wallpapers/center.jpg;
   home.file."wallpapers/right.jpg".source = ../../../shared/wallpapers/right.jpg;
   programs.plasma.configFile.plasmarc.Wallpapers.usersWallpapers = "${wallpaperDir}/left.jpg,${wallpaperDir}/center.jpg,${wallpaperDir}/right.jpg";
-
-  # Krohnkite tiling script
-  programs.plasma.configFile.kwinrc.Plugins.krohnkiteEnabled = true;
   programs.plasma.configFile.kwinrc."Script-krohnkite" = {
     directionalKeyFocus = false;
     floatUtility = true;

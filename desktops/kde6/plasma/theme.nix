@@ -73,6 +73,8 @@ in
       };
       translucency.enable = true;
       desktopSwitching.animation = "off";
+      desktopSwitching.navigationWrapping = true;
+      dimInactive.enable = true;
       windowOpenClose.animation = "glide";
       minimization.animation = "magiclamp";
     };
@@ -85,9 +87,7 @@ in
   };
 
   # KWin extra settings
-  programs.plasma.configFile.kwinrc.Windows.RollOverDesktops = true;
   programs.plasma.configFile.kwinrc.Windows.FocusPolicy = "FocusFollowsMouse";
-  programs.plasma.configFile.kwinrc.Plugins.diminactiveEnabled = true;
   programs.plasma.configFile.kwinrc."Effect-diminactive".Strength = 40;
   programs.plasma.configFile.kwinrc.Plugins.virtualdesktopsonlyonprimaryEnabled = true;
   programs.plasma.configFile.kwinrc.Plugins.kwin4_effect_geometry_changeEnabled = true;

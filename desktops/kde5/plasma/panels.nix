@@ -6,23 +6,20 @@
       location = "top";
       screen = 0;
       height = 32;
-      floating = false;
       alignment = "center";
-      hiding = "normalpanel";
+      hiding = "none";
       widgets = [
         {
-          pager = {
-            general = {
-              showOnlyCurrentScreen = true;
-              showApplicationIconsOnWindowOutlines = true;
-              navigationWrapsAround = true;
-            };
+          name = "org.kde.plasma.pager";
+          config.General = {
+            showOnlyCurrentScreen = "true";
+            showWindowIcons = "true";
+            wrapPage = "true";
           };
         }
         {
-          iconTasks = {
-            launchers = [];
-          };
+          name = "org.kde.plasma.icontasks";
+          config.General.launchers = "";
         }
         "org.kde.plasma.panelspacer"
         {

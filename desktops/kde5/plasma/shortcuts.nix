@@ -64,7 +64,7 @@
 
     # KRunner
     "org.kde.krunner.desktop" = {
-      _launch = "Search,Alt+Space,Alt+F2";
+      _launch = [ "Search" "Alt+Space" "Alt+F2" ];
       RunClipboard = "Alt+Shift+F2";
     };
 
@@ -90,7 +90,7 @@
       mute = "Volume Mute";
       increase_microphone_volume = "Microphone Volume Up";
       decrease_microphone_volume = "Microphone Volume Down";
-      mic_mute = "Meta+Volume Mute,Microphone Mute";
+      mic_mute = [ "Meta+Volume Mute" "Microphone Mute" ];
     };
 
     # Spectacle (screenshots)

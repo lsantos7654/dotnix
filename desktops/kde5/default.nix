@@ -23,7 +23,7 @@ in
     };
     backupFileExtension = "backup";
     sharedModules = [
-      inputs.plasma-manager-kde5.homeModules.plasma-manager
+      inputs.plasma-manager-kde5.homeManagerModules.plasma-manager
     ];
   };
 

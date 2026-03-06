@@ -67,7 +67,7 @@
 
     # KRunner
     "org.kde.krunner.desktop" = {
-      _launch = "Search,Alt+Space,Alt+F2";
+      _launch = [ "Search" "Alt+Space" "Alt+F2" ];
       RunClipboard = "Alt+Shift+F2";
     };
 
@@ -87,13 +87,13 @@
     };
 
     # Hardware volume keys
-    kmix = {
-      increase_volume = "Volume Up";
-      decrease_volume = "Volume Down";
-      mute = "Volume Mute";
-      increase_microphone_volume = "Microphone Volume Up";
-      decrease_microphone_volume = "Microphone Volume Down";
-      mic_mute = "Meta+Volume Mute,Microphone Mute";
+    plasmashell = {
+      "increase volume" = "Volume Up";
+      "decrease volume" = "Volume Down";
+      "mute" = "Volume Mute";
+      "increase microphone volume" = "Microphone Volume Up";
+      "decrease microphone volume" = "Microphone Volume Down";
+      "mic mute" = [ "Meta+Volume Mute" "Microphone Mute" ];
     };
 
     # Spectacle (screenshots)

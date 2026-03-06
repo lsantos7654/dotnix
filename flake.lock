@@ -23,6 +23,30 @@
         "type": "github"
       }
     },
+    "dothome-kde5": {
+      "inputs": {
+        "home-manager": [
+          "home-manager-kde5"
+        ],
+        "nixpkgs": [
+          "nixpkgs-kde5"
+        ]
+      },
+      "locked": {
+        "lastModified": 1772760684,
+        "narHash": "sha256-xQ+reVvFUc8M5Ad2jhUHrHHzU0NVrFftGq95rmuM4Kg=",
+        "owner": "lsantos7654",
+        "repo": "dothome",
+        "rev": "6354ce0768339e162f2d16bfbf2b8eccd42c0e9b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lsantos7654",
+        "ref": "kde5",
+        "repo": "dothome",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -43,6 +67,27 @@
         "type": "github"
       }
     },
+    "home-manager-kde5": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs-kde5"
+        ]
+      },
+      "locked": {
+        "lastModified": 1719827415,
+        "narHash": "sha256-pvh+1hStXXAZf0sZ1xIJbWGx4u+OGBC1rVx6Wsw0fBw=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "f2e3c19867262dbe84fdfab42467fc8dd83a2005",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "ref": "release-23.11",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1772433332,
@@ -56,6 +101,22 @@
         "owner": "NixOS",
         "ref": "nixos-unstable",
         "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-kde5": {
+      "locked": {
+        "lastModified": 1720535198,
+        "narHash": "sha256-zwVvxrdIzralnSbcpghA92tWu2DV2lwv89xZc8MTrbg=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "205fd4226592cc83fd4c0885a3e4c9c400efabb5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "205fd4226592cc83fd4c0885a3e4c9c400efabb5",
         "type": "github"
       }
     },
@@ -82,12 +143,40 @@
         "type": "github"
       }
     },
+    "plasma-manager-kde5": {
+      "inputs": {
+        "home-manager": [
+          "home-manager-kde5"
+        ],
+        "nixpkgs": [
+          "nixpkgs-kde5"
+        ]
+      },
+      "locked": {
+        "lastModified": 1718294461,
+        "narHash": "sha256-SVgRGZ/fsSZ4rRY6EW/s0dSkz5p4t1+n/nk6mjIKZXM=",
+        "owner": "nix-community",
+        "repo": "plasma-manager",
+        "rev": "552888403867ba9cfd170c1e7edddabe54ef4342",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "ref": "plasma-5",
+        "repo": "plasma-manager",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "dothome": "dothome",
+        "dothome-kde5": "dothome-kde5",
         "home-manager": "home-manager",
+        "home-manager-kde5": "home-manager-kde5",
         "nixpkgs": "nixpkgs",
-        "plasma-manager": "plasma-manager"
+        "nixpkgs-kde5": "nixpkgs-kde5",
+        "plasma-manager": "plasma-manager",
+        "plasma-manager-kde5": "plasma-manager-kde5"
       }
     }
   },

@@ -58,7 +58,7 @@
               "org.kde.plasma.battery"
               "org.kde.plasma.clipboard"
               "org.kde.plasma.notifications"
-              "org.kde.plasma.mediaplayer"
+              "org.kde.plasma.mediacontroller"
               "org.kde.plasma.printmanager"
               "org.kde.plasma.devicenotifier"
             ];

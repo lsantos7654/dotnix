@@ -1,0 +1,27 @@
+{ ... }:
+
+{
+  # Display / Desktop
+  services.xserver.enable = true;
+  services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
+
+  # Keyboard
+  services.xserver.xkb.layout = "us";
+
+  # Printing
+  services.printing.enable = true;
+
+  # Qt theming via Kvantum
+  qt = {
+    enable = true;
+    style = "kvantum";
+    platformTheme = "kde";
+  };
+
+  # KDE Connect
+  programs.kdeconnect.enable = true;
+
+  # Ensure KWin effect plugins are linked into the system profile
+  environment.pathsToLink = [ "/lib/qt-6/plugins/kwin/effects/plugins" ];
+}

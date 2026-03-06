@@ -27,7 +27,6 @@
     papirus-icon-theme
     plasmusic-toolbar
     kdePackages.krohnkite
-    kde-rounded-corners
 
     # Gaming
     mangohud

@@ -21,7 +21,4 @@
 
   # KDE Connect
   programs.kdeconnect.enable = true;
-
-  # Ensure KWin effect plugins are linked into the system profile
-  environment.pathsToLink = [ "/lib/qt-6/plugins/kwin/effects/plugins" ];
 }

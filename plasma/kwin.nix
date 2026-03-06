@@ -55,8 +55,5 @@ in
     # Disable overview hot corner
     "Effect-overview".BorderActivate = 9;
 
-    # KDE Rounded Corners
-    Plugins.shapecornersEnabled = true;
-    "Effect-shapecorners".CornerRadius = 8;
   };
 }

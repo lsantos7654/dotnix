@@ -9,18 +9,6 @@
       "Switch Window Up" = "Meta+K";
       "Switch Window Right" = "Meta+L";
 
-      # Krohnkite window moving
-      "KrohnkiteShiftUp" = "Meta+Alt+K";
-      "KrohnkiteShiftDown" = "Meta+Alt+J";
-      "KrohnkiteShiftLeft" = "Meta+Alt+H";
-      "KrohnkiteShiftRight" = "Meta+Alt+L";
-      "KrohnkiteRotate" = "Meta+R";
-      "KrohnkiteNextLayout" = [ ];
-      "KrohnkiteFocusRight" = [ ];
-      "KrohnkiteFocusLeft" = [ ];
-      "KrohnkiteFocusUp" = [ ];
-      "KrohnkiteFocusDown" = [ ];
-
       # Desktop switching
       "Switch to Desktop 1" = "Meta+1";
       "Switch to Desktop 2" = "Meta+2";

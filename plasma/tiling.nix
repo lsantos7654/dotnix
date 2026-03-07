@@ -29,4 +29,18 @@
       threeColumnLayoutOrder = 0;
     };
   };
+
+  # Krohnkite shortcuts
+  programs.plasma.shortcuts.kwin = {
+    "KrohnkiteShiftUp" = "Meta+Alt+K";
+    "KrohnkiteShiftDown" = "Meta+Alt+J";
+    "KrohnkiteShiftLeft" = "Meta+Alt+H";
+    "KrohnkiteShiftRight" = "Meta+Alt+L";
+    "KrohnkiteRotate" = "Meta+R";
+    "KrohnkiteNextLayout" = [ ];
+    "KrohnkiteFocusRight" = [ ];
+    "KrohnkiteFocusLeft" = [ ];
+    "KrohnkiteFocusUp" = [ ];
+    "KrohnkiteFocusDown" = [ ];
+  };
 }

@@ -51,6 +51,7 @@
         {
           iconTasks = {
             launchers = [];
+            behavior.grouping.method = "none";
           };
         }
         "org.kde.plasma.panelspacer"

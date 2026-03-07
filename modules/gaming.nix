@@ -13,6 +13,7 @@
   environment.systemPackages = with pkgs; [
     mangohud
     protonup-qt
+    steamtinkerlaunch
   ];
 
   # Plasma gaming config (gaming-mode-toggle, gamescope window rule)

@@ -12,5 +12,17 @@
         opacityinactive = { value = 85; apply = "force"; };
       };
     }
+    {
+      description = "Gamescope Fullscreen";
+      match.window-class = { value = "gamescope"; type = "substring"; };
+      apply = {
+        position = { value = "0,0"; apply = "force"; };
+        size = { value = "7680,1440"; apply = "force"; };
+        above = { value = true; apply = "force"; };
+        noborder = { value = true; apply = "force"; };
+        opacityactive = { value = 100; apply = "force"; };
+        opacityinactive = { value = 100; apply = "force"; };
+      };
+    }
   ];
 }

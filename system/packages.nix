@@ -19,8 +19,14 @@
     claude-code
 
     # KDE Plasma extras
+    kdePackages.krohnkite
     papirus-icon-theme
     plasmusic-toolbar
+
+    # Gaming
+    mangohud
+    protonup-qt
+    steamtinkerlaunch
 
     # Apps
     spotify

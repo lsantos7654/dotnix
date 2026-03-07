@@ -15,7 +15,7 @@
       layoutPerDesktop = false;
       monocleLayoutOrder = 0;
       monocleMaximize = false;
-      noTileBorder = false;
+      noTileBorder = true;
       quarterLayoutOrder = 0;
       screenGapBetween = 5;
       screenGapBottom = 5;

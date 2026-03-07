@@ -27,6 +27,7 @@
         stackedLayoutOrder = 0;
         stairLayoutOrder = 0;
         threeColumnLayoutOrder = 0;
+        ignoreClass = "krunner,yakuake,spectacle,kded5,xwaylandvideobridge,plasmashell,ksplashqml,org.kde.plasmashell,org.kde.polkit-kde-authentication-agent-1,org.kde.kruler,kruler,kwin_wayland,ksmserver-logout-greeter,[steam_app_]";
       };
     };
 

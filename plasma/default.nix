@@ -10,6 +10,7 @@
     ./shortcuts.nix
     ./panels.nix
     ./window-rules.nix
+    ./gaming.nix
   ];
 
   programs.plasma.enable = true;

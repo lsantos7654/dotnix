@@ -44,6 +44,11 @@ in
     theme=Ant-Dark
   '';
 
+  programs.plasma.configFile = {
+    kdeglobals.WM.frame = "61,174,233";
+    kdeglobals.WM.inactiveFrame = "74,74,74";
+  };
+
   # Activate theme via plasma-manager
   programs.plasma.workspace = {
     colorScheme = "Ant-Dark";
@@ -55,8 +60,8 @@ in
       size = 24;
     };
     windowDecorations = {
-      library = "org.kde.kwin.aurorae";
-      theme = "__aurorae__svg__Ant-Dark";
+      library = "org.kde.kdecoration2";
+      theme = "Breeze";
     };
   };
 }

@@ -80,7 +80,7 @@
     # Session management
     ksmserver = {
       "Lock Session" = "Meta+Esc";
-      "Log Out" = "Meta+Shift+Esc";
+      "Log Out" = [ ];
     };
 
     # Media controls
@@ -139,6 +139,11 @@
       name = "Launch btop";
       key = "Meta+B";
       command = "kitty btop";
+    };
+    "logout-no-confirm" = {
+      name = "Log Out (No Confirm)";
+      key = "Meta+Shift+Esc";
+      command = "qdbus6 org.kde.Shutdown /Shutdown logout";
     };
   };
 }

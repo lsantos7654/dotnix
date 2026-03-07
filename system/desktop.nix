@@ -27,4 +27,11 @@
 
   # KDE Connect
   programs.kdeconnect.enable = true;
+
+  # Steam
+  programs.steam = {
+    enable = true;
+    gamescopeSession.enable = true;
+  };
+  hardware.steam-hardware.enable = true;
 }

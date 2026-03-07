@@ -4,6 +4,7 @@
   imports = [
     ./theme.nix
     ./kwin.nix
+    ./tiling.nix
     ./power.nix
     ./wallpaper.nix
     ./shortcuts.nix

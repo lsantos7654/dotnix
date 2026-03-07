@@ -80,7 +80,7 @@
     # Session management
     ksmserver = {
       "Lock Session" = "Meta+Esc";
-      "Log Out" = "Ctrl+Alt+Del";
+      "Log Out" = "Meta+Shift+Esc";
     };
 
     # Media controls

@@ -49,6 +49,10 @@ in
     kdeglobals.WM.inactiveFrame = "74,74,74";
   };
 
+  # KDE Rounded Corners
+  programs.plasma.configFile.kwinrc.Plugins.shapecornersEnabled = true;
+  programs.plasma.configFile.kwinrc."Effect-shapecorners".CornerRadius = 8;
+
   # Activate theme via plasma-manager
   programs.plasma.workspace = {
     colorScheme = "Ant-Dark";
@@ -60,8 +64,8 @@ in
       size = 24;
     };
     windowDecorations = {
-      library = "org.kde.kdecoration2";
-      theme = "Breeze";
+      library = "org.kde.kwin.aurorae";
+      theme = "__aurorae__svg__Ant-Dark";
     };
   };
 }

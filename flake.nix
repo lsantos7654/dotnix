@@ -31,6 +31,16 @@
       specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
+        ./modules/tiling.nix
+      ];
+    };
+
+    nixosConfigurations.nixos_gaming = nixpkgs.lib.nixosSystem {
+      inherit system;
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./configuration.nix
+        ./modules/gaming.nix
       ];
     };
   };

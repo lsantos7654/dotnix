@@ -6,8 +6,8 @@
       "Effect-shapecorners".CornerRadius = 8;
       "Round-Corners" = {
         ActiveSecondOutlinePalette = 16;
-        DisableOutlineFullScreen = false;
-        DisableOutlineMaximize = false;
+        DisableOutlineFullScreen = true;
+        DisableOutlineMaximize = true;
         DisableOutlineTile = false;
         DisableRoundFullScreen = false;
         DisableRoundMaximize = false;

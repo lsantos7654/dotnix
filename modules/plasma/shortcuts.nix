@@ -1,6 +1,54 @@
 { ... }:
 {
-  flake.modules.homeManager.plasma = {
+  flake.modules.homeManager.plasma = { pkgs, ... }:
+  let
+    toggle-transparency = pkgs.writeShellApplication {
+      name = "toggle-transparency";
+      runtimeInputs = with pkgs; [ kdePackages.qttools kdePackages.kconfig libnotify ];
+      text = ''
+        STATE_FILE="''${XDG_RUNTIME_DIR}/transparency-disabled"
+
+        find_transparent_rule_group() {
+          local i=1
+          while true; do
+            desc=$(kreadconfig6 --file kwinrulesrc --group "$i" --key Description 2>/dev/null)
+            if [ -z "$desc" ]; then break; fi
+            if [ "$desc" = "Transparent Windows" ]; then
+              echo "$i"
+              return
+            fi
+            i=$((i + 1))
+          done
+        }
+
+        RULE_GROUP=$(find_transparent_rule_group)
+        [ -z "$RULE_GROUP" ] && exit 1
+
+        if [ -f "$STATE_FILE" ]; then
+          rm "$STATE_FILE"
+          kwriteconfig6 --file kwinrulesrc --group "$RULE_GROUP" --key opacityactive 85
+          kwriteconfig6 --file kwinrulesrc --group "$RULE_GROUP" --key opacityinactive 85
+          qdbus org.kde.KWin /KWin reconfigure
+          notify-send "Transparency" "ON — 85%" --icon=preferences-system-windows
+        else
+          touch "$STATE_FILE"
+          kwriteconfig6 --file kwinrulesrc --group "$RULE_GROUP" --key opacityactive 100
+          kwriteconfig6 --file kwinrulesrc --group "$RULE_GROUP" --key opacityinactive 100
+          qdbus org.kde.KWin /KWin reconfigure
+          notify-send "Transparency" "OFF — 100%" --icon=preferences-system-windows
+        fi
+      '';
+    };
+  in
+  {
+    home.packages = [ toggle-transparency ];
+
+    programs.plasma.hotkeys.commands."toggle-transparency" = {
+      name = "Toggle Window Transparency";
+      key = "Meta+G";
+      command = "toggle-transparency";
+    };
+
     programs.plasma.shortcuts = {
       kwin = {
         # Vim-style window focus
@@ -57,6 +105,7 @@
         # Walk through windows
         "Walk Through Windows" = "Meta+Tab";
         "Walk Through Windows (Reverse)" = "Meta+Shift+Tab";
+        "Grid View" = [ ];
       };
 
       # KRunner

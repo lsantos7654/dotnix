@@ -26,6 +26,7 @@
       mangohud
       protonup-qt
       steamtinkerlaunch
+      discord
 
       # Apps
       spotify

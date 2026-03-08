@@ -42,9 +42,6 @@
                   skipBackwardControlInPanel = false;
                   skipForwardControlInPanel = false;
                 };
-                Shortcuts = {
-                  global = "Meta+\\";
-                };
               };
             };
           }

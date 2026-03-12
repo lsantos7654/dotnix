@@ -17,6 +17,7 @@
       (btop.override { cudaSupport = true; })
       htop
       claude-code
+      alsa-utils
 
       # KDE Plasma extras
       papirus-icon-theme

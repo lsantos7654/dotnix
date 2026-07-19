@@ -58,7 +58,7 @@
       widgetStyle = "kvantum-dark";
       cursor = {
         theme = "breeze_cursors";
-        size = 24;
+        size = 32;
       };
       windowDecorations = {
         library = "org.kde.kwin.aurorae";

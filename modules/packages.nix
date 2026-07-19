@@ -16,14 +16,11 @@
       curl
       wget
       htop
+      btop
       alsa-utils
 
-      # Editors and dev tools
-      claude-code
     ]
     ++ lib.optionals pkgs.stdenv.hostPlatform.isx86_64 [
-      (btop.override { cudaSupport = true; })
-
       # KDE Plasma extras
       papirus-icon-theme
       plasmusic-toolbar

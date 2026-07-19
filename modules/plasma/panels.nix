@@ -27,13 +27,6 @@
           }
           "org.kde.plasma.panelspacer"
           {
-            digitalClock = {
-              date.enable = true;
-              time.format = "12h";
-            };
-          }
-          "org.kde.plasma.panelspacer"
-          {
             plasmusicToolbar = {
               settings = {
                 General = {
@@ -46,15 +39,21 @@
             };
           }
           {
+            digitalClock = {
+              date.enable = true;
+              time.format = "12h";
+            };
+          }
+          {
             systemTray = {
               items.shown = [
                 "org.kde.plasma.volume"
                 "org.kde.plasma.networkmanagement"
                 "org.kde.plasma.bluetooth"
-              ];
-              items.hidden = [
                 "org.kde.plasma.battery"
                 "org.kde.plasma.clipboard"
+              ];
+              items.hidden = [
                 "org.kde.plasma.notifications"
                 "org.kde.plasma.mediacontroller"
                 "org.kde.plasma.printmanager"

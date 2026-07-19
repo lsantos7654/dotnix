@@ -51,6 +51,9 @@
 
     programs.plasma.shortcuts = {
       kwin = {
+        # Clear defaults that conflict with our hotkeys
+        "Edit Tiles" = [ ];
+
         # Vim-style window focus
         "Switch Window Left" = "Meta+H";
         "Switch Window Down" = "Meta+J";

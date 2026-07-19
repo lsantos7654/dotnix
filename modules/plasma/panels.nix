@@ -5,7 +5,7 @@
       {
         location = "top";
         screen = 0;
-        height = 32;
+        height = 40;
         floating = false;
         alignment = "center";
         hiding = "normalpanel";

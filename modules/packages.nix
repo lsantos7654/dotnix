@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.modules.nixos.packages = { pkgs, ... }: {
+  flake.modules.nixos.packages = { lib, pkgs, ... }: {
     programs.zsh.enable = true;
 
     fonts.packages = with pkgs; [
@@ -12,12 +12,17 @@
       vim
       git
       gh
+      clang
       curl
       wget
-      (btop.override { cudaSupport = true; })
       htop
-      claude-code
       alsa-utils
+
+      # Editors and dev tools
+      claude-code
+    ]
+    ++ lib.optionals pkgs.stdenv.hostPlatform.isx86_64 [
+      (btop.override { cudaSupport = true; })
 
       # KDE Plasma extras
       papirus-icon-theme

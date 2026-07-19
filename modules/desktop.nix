@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.modules.nixos.desktop = { pkgs, ... }: {
+  flake.modules.nixos.desktop = { lib, pkgs, ... }: {
     services.xserver.enable = true;
     services.displayManager.sddm.enable = true;
     services.desktopManager.plasma6.enable = true;
@@ -22,10 +22,10 @@
 
     programs.kdeconnect.enable = true;
 
-    programs.steam = {
+    programs.steam = lib.mkIf pkgs.stdenv.hostPlatform.isx86_64 {
       enable = true;
       gamescopeSession.enable = true;
     };
-    hardware.steam-hardware.enable = true;
+    hardware.steam-hardware.enable = lib.mkIf pkgs.stdenv.hostPlatform.isx86_64 true;
   };
 }

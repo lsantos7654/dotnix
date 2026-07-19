@@ -4,7 +4,7 @@
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
 
-    boot.kernelPackages = pkgs.linuxPackages_6_18;
+    boot.kernelPackages = pkgs.linuxPackages;
 
     # ACPI fix for ASUS Z690-E board
     boot.kernelParams = [

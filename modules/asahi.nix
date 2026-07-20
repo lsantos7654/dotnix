@@ -7,6 +7,9 @@
     boot.loader.efi.canTouchEfiVariables = false;
     boot.kernelParams = [ "apple_dcp.show_notch=1" ];
 
+    zramSwap.enable = true;
+    zramSwap.memoryPercent = 50;
+
     hardware.asahi.enable = true;
 
     services.envfs.enable = true;

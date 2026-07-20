@@ -1,6 +1,21 @@
 { ... }:
 {
   flake.modules.nixos.desktop = { lib, pkgs, ... }: {
+    nixpkgs.overlays = [
+      (final: prev: {
+        kde-rounded-corners = prev.kde-rounded-corners.overrideAttrs (old: {
+          version = "0.9.0";
+          src = prev.fetchFromGitHub {
+            owner = "matinlotfali";
+            repo = "KDE-Rounded-Corners";
+            rev = "v0.9.0";
+            hash = "sha256-JZlrjVjA2OGZhWpkSYvwYpPx4tmqlMvi4cP4zM4hxFc=";
+          };
+          patches = [];
+        });
+      })
+    ];
+
     services.xserver.enable = true;
     services.displayManager.sddm.enable = true;
     services.desktopManager.plasma6.enable = true;

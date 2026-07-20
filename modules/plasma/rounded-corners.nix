@@ -3,8 +3,8 @@
   flake.modules.homeManager.plasma = {
     programs.plasma.configFile.kwinrc = {
       Plugins.shapecornersEnabled = true;
-      "Effect-shapecorners".CornerRadius = 8;
       "Round-Corners" = {
+        Size = 12;
         ActiveSecondOutlinePalette = 16;
         DisableOutlineFullScreen = true;
         DisableOutlineMaximize = true;

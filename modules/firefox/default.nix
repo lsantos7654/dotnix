@@ -37,9 +37,6 @@
         settings = {
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
           "full-screen-api.ignore-widgets" = true;
-          "media.eme.enabled" = true;
-          "media.gmp-widevinecdm.enabled" = true;
-          "media.gmp-widevinecdm.visible" = true;
         };
       };
     };

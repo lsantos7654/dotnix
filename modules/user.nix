@@ -8,7 +8,7 @@ in
     users.users.${username} = {
       isNormalUser = true;
       description = "Lucas Santos";
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = [ "networkmanager" "wheel" "input" ];
       shell = pkgs.zsh;
     };
 
@@ -25,6 +25,7 @@ in
           homeManager.plasma
           homeManager.tiling
           homeManager.firefox
+          homeManager.inputactions
         ];
         home.username = username;
         home.homeDirectory = "/home/${username}";

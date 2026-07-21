@@ -1,5 +1,56 @@
 { ... }:
+let
+  inputactions-kwin-pkg = { stdenv
+  , cmake
+  , extra-cmake-modules
+  , fetchFromGitHub
+  , kglobalacceld
+  , kwin
+  , libevdev
+  , pkg-config
+  , qttools
+  , wrapQtAppsHook
+  , yaml-cpp
+  }:
+  stdenv.mkDerivation {
+    pname = "inputactions-kwin";
+    version = "0.9.0.0";
+
+    src = fetchFromGitHub {
+      owner = "InputActions";
+      repo = "kwin";
+      rev = "4c672d124b2bc3e36909570492ec6f3b18915158";
+      hash = "sha256-CxWRjBRZ8ZFTUGZpTnLFnguGRz2xkxYzAXYuGW9b7vQ=";
+      fetchSubmodules = true;
+    };
+
+    nativeBuildInputs = [
+      cmake
+      extra-cmake-modules
+      wrapQtAppsHook
+    ];
+
+    buildInputs = [
+      kwin
+      qttools
+      libevdev
+      kglobalacceld
+      pkg-config
+      yaml-cpp
+    ];
+
+    postInstall = "";  # keep in effects/plugins/ — this is a KWin Effect, not a Plugin
+  };
+in
 {
+  flake.modules.nixos.kwin = {
+    nixpkgs.overlays = [(final: prev: {
+      kdePackages = prev.kdePackages.overrideScope (kfinal: kprev: {
+        inputactions-kwin = kfinal.callPackage inputactions-kwin-pkg { };
+      });
+    })];
+  };
+
   flake.modules.homeManager.plasma = { pkgs, ... }:
   let
     kwin-geometry-change = pkgs.fetchFromGitHub {
@@ -10,7 +61,6 @@
     };
   in
   {
-    # Install Geometry Change KWin effect
     xdg.dataFile."kwin/effects/kwin4_effect_geometry_change" = {
       source = "${kwin-geometry-change}/package";
       recursive = true;
@@ -45,6 +95,7 @@
       "Effect-diminactive".Strength = 40;
       Plugins.virtualdesktopsonlyonprimaryEnabled = true;
       Plugins.kwin4_effect_geometry_changeEnabled = true;
+      Plugins.kwin_gesturesEnabled = true;
       "Effect-overview".BorderActivate = 9;
     };
   };

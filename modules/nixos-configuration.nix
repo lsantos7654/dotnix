@@ -9,6 +9,8 @@ let
     nixos.desktop
     nixos.packages
     nixos.tiling
+    nixos.kwin
+    nixos.inputactions
     nixos.user
   ];
 in

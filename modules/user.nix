@@ -26,6 +26,7 @@ in
           homeManager.tiling
           homeManager.firefox
           homeManager.inputactions
+          homeManager.spotify
         ];
         home.username = username;
         home.homeDirectory = "/home/${username}";

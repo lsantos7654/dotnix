@@ -1,6 +1,7 @@
 { ... }:
 {
-  flake.modules.nixos.packages = { lib, pkgs, ... }: {
+  flake.modules.nixos.packages = { lib, pkgs, ... }:
+  {
     programs.zsh.enable = true;
 
     fonts.packages = with pkgs; [
@@ -19,6 +20,9 @@
       btop
       alsa-utils
 
+    ]
+    ++ [
+      (pkgs.chromium.override { enableWideVine = true; })
     ]
     ++ lib.optionals pkgs.stdenv.hostPlatform.isx86_64 [
       # KDE Plasma extras

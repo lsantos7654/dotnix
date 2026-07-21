@@ -18,6 +18,7 @@
       htop
       btop
       alsa-utils
+      widevine-cdm
 
     ]
     ++ lib.optionals pkgs.stdenv.hostPlatform.isx86_64 [

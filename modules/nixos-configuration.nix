@@ -19,7 +19,7 @@ in
     system = "x86_64-linux";
     module = {
       imports = [
-        ../hardware-configuration.nix
+        nixos.hardware-configuration
         nixos.hardware
       ] ++ commonImports;
 
@@ -32,7 +32,7 @@ in
     system = "aarch64-linux";
     module = {
       imports = [
-        ../asahi-hardware-configuration.nix
+        nixos.asahi-hardware-configuration
         nixos.asahi
       ] ++ commonImports;
 

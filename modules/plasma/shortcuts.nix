@@ -43,11 +43,6 @@
   {
     home.packages = [ toggle-transparency ];
 
-    programs.plasma.hotkeys.commands."toggle-transparency" = {
-      name = "Toggle Window Transparency";
-      key = "Meta+G";
-      command = "toggle-transparency";
-    };
 
     programs.plasma.shortcuts = {
       kwin = {
@@ -157,6 +152,11 @@
 
     # Application hotkeys
     programs.plasma.hotkeys.commands = {
+      "toggle-transparency" = {
+        name = "Toggle Window Transparency";
+        key = "Meta+G";
+        command = "toggle-transparency";
+      };
       "launch-kitty" = {
         name = "Launch Kitty";
         key = "Meta+T";

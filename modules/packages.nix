@@ -19,6 +19,7 @@
       htop
       btop
       alsa-utils
+      git-lfs
 
     ]
     ++ [

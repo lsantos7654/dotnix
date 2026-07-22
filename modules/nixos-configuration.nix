@@ -34,6 +34,7 @@ in
       imports = [
         nixos.asahi-hardware-configuration
         nixos.asahi
+        nixos.displaylink
         nixos.video-wallpaper
       ] ++ commonImports;
 

@@ -1,5 +1,8 @@
 { inputs, ... }:
 {
+  # NOTE: Rebuilding this configuration requires --impure so the apple-silicon
+  # module can auto-detect the peripheral firmware on the ESP (/boot/asahi):
+  #   sudo nixos-rebuild switch --flake .#asahi --impure
   flake.modules.nixos.asahi = { pkgs, ... }: {
     imports = [ inputs.apple-silicon.nixosModules.apple-silicon-support ];
 

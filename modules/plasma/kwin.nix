@@ -59,10 +59,24 @@ in
       rev = "v1.5";
       hash = "sha256-p4FpqagR8Dxi+r9A8W5rGM5ybaBXP0gRKAuzigZ1lyA=";
     };
+
+    # KWin script: pins windows on non-primary outputs to all desktops
+    # (GNOME-style "workspaces on primary display only")
+    virtual-desktops-only-on-primary = pkgs.fetchFromGitHub {
+      owner = "Ubiquitine";
+      repo = "virtual-desktops-only-on-primary";
+      rev = "fa1d87953cbc6d923fdcd59a057d69100ef92784";
+      hash = "sha256-znOsncV+otIh9idoqP+l1gFZ9Nem2AVCoy8Eg0v+NqU=";
+    };
   in
   {
     xdg.dataFile."kwin/effects/kwin4_effect_geometry_change" = {
       source = "${kwin-geometry-change}/package";
+      recursive = true;
+    };
+
+    xdg.dataFile."kwin/scripts/virtual-desktops-only-on-primary" = {
+      source = virtual-desktops-only-on-primary;
       recursive = true;
     };
 
@@ -93,7 +107,7 @@ in
     programs.plasma.configFile.kwinrc = {
       Windows.FocusPolicy = "FocusFollowsMouse";
       "Effect-diminactive".Strength = 40;
-      Plugins.virtualdesktopsonlyonprimaryEnabled = true;
+      Plugins."virtual-desktops-only-on-primaryEnabled" = true;
       Plugins.kwin4_effect_geometry_changeEnabled = true;
       Plugins.kwin_gesturesEnabled = true;
       "Effect-overview".BorderActivate = 9;

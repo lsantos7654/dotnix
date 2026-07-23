@@ -23,7 +23,7 @@
 
     ]
     ++ [
-      (pkgs.chromium.override { enableWideVine = true; })
+      (pkgs.chromium.override { enableWideVine = true; commandLineArgs = "--password-store=basic"; })
     ]
     ++ lib.optionals pkgs.stdenv.hostPlatform.isx86_64 [
       # KDE Plasma extras

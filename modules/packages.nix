@@ -4,6 +4,11 @@
   {
     programs.zsh.enable = true;
 
+    # Force Chromium to preserve session cookies (sp_dc/sp_key) across
+    # restarts so the Spotify web player stays logged in.
+    environment.etc."chromium/policies/managed/spotify-session.json".text =
+      builtins.toJSON { RestoreOnStartup = 1; };
+
     fonts.packages = with pkgs; [
       nerd-fonts.hack
     ];

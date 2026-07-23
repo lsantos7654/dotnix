@@ -32,11 +32,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1784438055,
-        "narHash": "sha256-6x/DUDAyfrChJMN0UEIZ94QCpHAMY8PNuXD730I2m7A=",
+        "lastModified": 1784769488,
+        "narHash": "sha256-sGKgD1h8zfbe3WkbAEEn9jgWiA7jtsRlCfOIv4nz4Yc=",
         "owner": "lsantos7654",
         "repo": "dothome",
-        "rev": "dd3f03e4923511e8d73e5bb2907e9ae2c8e15b0d",
+        "rev": "8abbeeda32ed70e551988cec2dac9382c162ec7f",
         "type": "github"
       },
       "original": {

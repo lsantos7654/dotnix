@@ -123,8 +123,9 @@
         playpausemedia = "Meta+/";
         nextmedia = "Meta+.";
         previousmedia = "Meta+,";
-        mediavolumeup = "Meta+=";
-        mediavolumedown = "Meta+-";
+        # Freed for spotify-* commands below
+        mediavolumeup = [ ];
+        mediavolumedown = [ ];
       };
 
       # Hardware volume keys
@@ -181,6 +182,21 @@
         name = "Log Out (No Confirm)";
         key = "Meta+Shift+Esc";
         command = "qdbus6 org.kde.Shutdown /Shutdown logout";
+      };
+      "spotify-volume-up" = {
+        name = "Spotify Volume Up";
+        key = "Meta+=";
+        command = "spotify-volume-up";
+      };
+      "spotify-volume-down" = {
+        name = "Spotify Volume Down";
+        key = "Meta+-";
+        command = "spotify-volume-down";
+      };
+      "spotify-like" = {
+        name = "Spotify Like Song";
+        key = "Meta+]";
+        command = "spotify-like";
       };
     };
   };
